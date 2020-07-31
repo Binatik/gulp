@@ -1,11 +1,14 @@
-const formats = '{img,svg,webp,jpg,png}'  
+const formats = '{img,svg,webp,jpg,png}';
 //Вспомогательные функции.
 function getCompile(src) {
-    const html = `${src}/*.html`;
-    const image = `${src}/image/**/*.${formats}`;
-    const fonts = `${src}/fonts/*.ttf`;
-    const styles = `${src}/styles/`;
-    const scripts = `${src}/scripts/`;
+    const compile = [
+        `${src}/*.html`,
+        `${src}/image/**/*.${formats}`,
+        `${src}/fonts/*.ttf`,
+        `${src}/styles/`,
+        `${src}/scripts/`,
+    ] 
+    return compile; 
 }
 
 function listenWatch(src) {
@@ -17,7 +20,7 @@ function listenWatch(src) {
 
 function getClean(src) {
     const delCommand = `./${src}/`
-}  
+}
 
 //Gulp
 const {
