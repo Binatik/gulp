@@ -33,40 +33,40 @@ const {
 } = require('gulp'),
 
     gulp = require('gulp'),
-    browserSync = require('browser-sync').create();
+    browserSync = require('browser-sync').create(), 
+    fileinclude = require('gulp-file-include');
 
 const updatePage = () => browserSync.init({
     server: {
         baseDir: './build/'
     },
-});
+}); 
 
-//Моды для  html.
+// 
+const build = (name, dirname = '') => ( 
+    src(getPaths('development')[name])  
+    .pipe(fileinclude())
+    .pipe(dest(`build/${dirname}`)) 
+    .pipe(src(getPaths(`build/${dirname ? `${dirname}/*.*` : ''}`)[name])) 
+    .pipe(browserSync.stream()) 
+    );
+
+
 const getHtml = () => (
-    src(getPaths('development').html)
-    .pipe(dest(getPaths('build').html))
-    .pipe(browserSync.stream())
-);
+    build('html')
+); 
 
-//Комбинации.   
-const defaultGulp = gulp.series(getHtml, updatePage);
+const getImage = () => (
+    build('image', 'image')
+); 
+
+const getFonts = () => (
+    build('fonts', 'fonts')
+); 
+
+//Комбинации.  
+gulp.watch(pathListWhichListen('development'), getHtml, getImage, getFonts);  
+const defaultGulp = gulp.series(getHtml, getImage, getFonts, updatePage);
 
 //module exports.arbitraryName = function/variable 
 exports.default = defaultGulp; 
-
-/* За кулисами getHtml:  
-object = { 
-    key: getHtml   
-    --оно--
-    ======================================
-    const getHtml = () => (
-    src(getPaths('development').html)
-    .pipe(dest(getPaths('build').html))
-    .pipe(browserSync.stream())
-);
-);
-    //CODE FUNCTION
-    ======================================
-);
-}
-*/
