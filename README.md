@@ -17,7 +17,7 @@ npm install gulp --save-dev
 | npm i gulp-group-css-media-queries --save-dev |[#media запросы группирует в один из нескольких повторений](https://www.npmjs.com/package/gulp-group-css-media-queries"")| 
 | npm i gulp-clean-css --save-dev |[Оптимизирует css код](https://www.npmjs.com/package/gulp-clean-css"")| 
 | npm i gulp-rename --save-dev |[Изменяет имя выходного файл формата .name. Типа .min.css](https://www.npmjs.com/package/gulp-rename"")| 
-| npm i gulp-uglify --save-dev |[меньшает размер JavaScript](https://www.npmjs.com/package/gulp-uglify"")| 
+| npm i gulp-uglify --save-dev |[уменьшает размер JavaScript](https://www.npmjs.com/package/gulp-uglify"")| 
 | npm install --save-dev gulp-babel @babel/core @babel/preset-env |[@babel](https://babeljs.io/"")|  
 | npm i gulp-imagemin --save-dev |[Уменьшает размер изображения и оптимизирует их](https://www.npmjs.com/package/gulp-imagemin"")| 
 | npm i gulp-webp --save-dev |[Кодирует изображение в современный формат](https://www.npmjs.com/package/gulp-webp"")| 
