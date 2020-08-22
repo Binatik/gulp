@@ -1,2 +1,2 @@
-alert('Test gulp @@include'); 
+alert('Test gulp -include'); 
  
